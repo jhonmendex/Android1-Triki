@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Reto4</string>
+    <string name="difficulty_easy">Easy</string>
+    <string name="difficulty_harder">Harder</string>
+    <string name="difficulty_expert">Expert</string>
+    <string name="difficulty_choose">Seleccione la dificultad</string>
+    <string name="quit_question">¿Desea salir del juego?</string>
+    <string name="yes">SI</string>
+    <string name="no">NO</string>
+
+</resources>
