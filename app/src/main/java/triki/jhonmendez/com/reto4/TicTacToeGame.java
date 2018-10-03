@@ -9,7 +9,7 @@ public class TicTacToeGame {
     // Characters used to represent the human, computer, and open spots
     public static final char HUMAN_PLAYER = 'X';
     public static final char COMPUTER_PLAYER = 'O';
-
+    public static final	char OPEN_SPOT	= '	';
 
     // The computer's difficulty levels
     public enum DifficultyLevel {Easy, Harder, Expert};
@@ -196,11 +196,25 @@ return move;
 
     }
 
+    public char getBoardOccupant(int i) {
+        return mBoard[i];
+    }
+
     /** Set the given player at the given location on the game board.
      *  The location must be available, or the board will not be changed.
      *
      * @param player - The HUMAN_PLAYER or COMPUTER_PLAYER
      * @param location - The location (0-8) to place the move
      */
-    // public void setMove(char player, int location){}
+     public boolean setMove(char player, int location){
+             if(mBoard[location]==OPEN_SPOT){
+                 if(player == HUMAN_PLAYER){
+                     mBoard[location]=HUMAN_PLAYER;
+                 }else{
+                     mBoard[location]=COMPUTER_PLAYER;
+                 }
+                 return true;
+             }
+             return false;
+     }
 }

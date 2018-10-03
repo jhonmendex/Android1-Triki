@@ -15,6 +15,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.view.View.OnTouchListener;
+import android.view.MotionEvent;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     static final int DIALOG_ABOUT_ID = 2;
 
     // Represents the internal state of the game
-    private TicTacToeGame mGame;
+    private static TicTacToeGame mGame;
 
     // Buttons making up the board
     private Button mBoardButtons[];
@@ -32,35 +34,58 @@ public class MainActivity extends AppCompatActivity {
     // Various text displayed
     private TextView mInfoTextView;
 
+    //  reto 5
+    private static BoardView mBoardView;
+    private boolean mGameOver;
+    int selected;
+    static TextView mHuman_win;
+    static TextView mComputer_win;
+    static TextView mTie;
+    static int nHumanWin;
+    static int nComputerWin;
+    static int nTie;
+    private boolean turn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        mBoardButtons = new Button[TicTacToeGame.BOARD_SIZE];
-        mBoardButtons[0] = (Button) findViewById(R.id.one);
-        mBoardButtons[1] = (Button) findViewById(R.id.two);
-        mBoardButtons[2] = (Button) findViewById(R.id.three);
-        mBoardButtons[3] = (Button) findViewById(R.id.four);
-        mBoardButtons[4] = (Button) findViewById(R.id.five);
-        mBoardButtons[5] = (Button) findViewById(R.id.six);
-        mBoardButtons[6] = (Button) findViewById(R.id.seven);
-        mBoardButtons[7] = (Button) findViewById(R.id.eight);
-        mBoardButtons[8] = (Button) findViewById(R.id.nine);
-
-        mInfoTextView = (TextView) findViewById(R.id.information);
-
         mGame = new TicTacToeGame();
+        mBoardView = (BoardView) findViewById(R.id.board);
+        mBoardView.setGame(mGame);
+        mBoardView.setOnTouchListener(mTouchListener);
+        mInfoTextView = (TextView) findViewById(R.id.information);
+        mHuman_win = (TextView) findViewById(R.id.human);
+        mComputer_win = (TextView) findViewById(R.id.computer);
+        mTie = (TextView) findViewById(R.id.tie);
+
+        nComputerWin = 0;
+        nHumanWin = 0;
+        nTie = 0;
+
+        mGameOver = false;
+        turn = true;
+        selected = 2;
+
+
+
         startNewGame();
 
-//        final Button button = findViewById(R.id.new_game);
-//        button.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                startNewGame();
-//            }
-//        });
+
     }
 
+    // Listen for touches on the board
+    private OnTouchListener mTouchListener = new OnTouchListener() {
+        public boolean onTouch(View v, MotionEvent event) {
+            // Determine which cell was touched
+            int col = (int) event.getX() / mBoardView.getBoardCellWidth();
+            int row = (int) event.getY() / mBoardView.getBoardCellHeight();
+            int pos = row * 3 + col;
+
+
+            return false;
+        }
+    };
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -93,13 +118,8 @@ public class MainActivity extends AppCompatActivity {
     private void startNewGame() {
 
         mGame.clearBoard();
+        mBoardView.invalidate();
 
-        // Reset all buttons
-        for (int i = 0; i < mBoardButtons.length; i++) {
-            mBoardButtons[i].setText("");
-            mBoardButtons[i].setEnabled(true);
-            mBoardButtons[i].setOnClickListener(new ButtonClickListener(i));
-        }
 
         // Human goes first
         mInfoTextView.setText("You go first.");
@@ -161,15 +181,13 @@ public class MainActivity extends AppCompatActivity {
         return dialog;
     }
 
-    private void setMove(char player, int location) {
+    private static boolean setMove(char player, int location) {
 
-        //mGame.setMove(player, location);
-        mBoardButtons[location].setEnabled(false);
-        mBoardButtons[location].setText(String.valueOf(player));
-        if (player == TicTacToeGame.HUMAN_PLAYER)
-            mBoardButtons[location].setTextColor(Color.rgb(0, 200, 0));
-        else
-            mBoardButtons[location].setTextColor(Color.rgb(200, 0, 0));
+        boolean move_done = mGame.setMove(player, location);
+        if(move_done){
+            mBoardView.invalidate();
+        }
+        return move_done;
     }
 
     // Handles clicks on the game board buttons
