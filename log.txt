@@ -1,0 +1,11 @@
+commit c19e2a15dd42fc663f3d12405760c132bd4d78e1
+Author: jhon <jhonmendex@gmail.com>
+Date:   Wed Oct 3 01:25:42 2018 -0500
+
+    version estable con dibujo de canvas
+
+commit 58d06511eb1e50a1a04cafdc0b9ca460282aef72
+Author: jhonmendex <jhonmendex@gmail.com>
+Date:   Thu Sep 13 00:50:45 2018 -0500
+
+    commit reto 4

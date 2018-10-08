@@ -1,11 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Reto4</string>
-    <string name="difficulty_easy">Easy</string>
-    <string name="difficulty_harder">Harder</string>
-    <string name="difficulty_expert">Expert</string>
-    <string name="difficulty_choose">Seleccione la dificultad</string>
-    <string name="quit_question">¿Desea salir del juego?</string>
-    <string name="yes">SI</string>
-    <string name="no">NO</string>
 
+    <string name="app_name">Triki Reto 5.</string>
+    <string name="action_settings">Configuraciones</string>
+    
+    <string name="first_human">Primero tú.</string>
+    <string name="turn_human">Tu turno.</string>
+    <string name="turn_computer">Turno Maquina.</string>
+    <string name="result_tie">Empate.</string>
+    <string name="result_human_wins">Ganaste!</string>
+    <string name="result_computer_wins">Perdiste!</string>
+	<string name="human">Tu:</string>
+	<string name="computer">Maquina:</string>
+	<string name="ties">Empates:</string>
+	
+	<string name="new_game">Nuevo juego</string>
+	<string name="setting">Configuraciones</string>
+	<string name="reset_score">Resetear puntaje</string>
+	<string name="about">Desarrollador</string>
+	<string name="quit_game">Salir</string>
+	
+	<string name="difficulty_easy">Fácil</string>
+	<string name="difficulty_harder">Medio</string>
+	<string name="difficulty_expert">Difícil</string>
+	
+	<string name="difficulty_choose">Seleccionar</string>
+	<string name="quit_question">Estás seguro de Salir?</string>
+	<string name="yes">Yes</string>
+	<string name="no">No</string>
+	
+	<string name="about_developer">Reto desarrollado por: Jhon Mendez</string>
+	<string name="about_game">Universidad Nacional de Colombia</string>
 </resources>

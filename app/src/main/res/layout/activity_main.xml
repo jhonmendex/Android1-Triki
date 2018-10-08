@@ -1,65 +1,53 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
 
-
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:gravity="center_horizontal"
-        android:orientation="vertical" >
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <TextView
-                android:id="@+id/human"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:gravity="left"
-                android:text="Human:0"
-                android:textSize="15dp" />
-
-            <TextView
-                android:id="@+id/tie"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:gravity="center_horizontal"
-                android:text="Ties:0"
-                android:textSize="15dp" />
-
-            <TextView
-                android:id="@+id/computer"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:gravity="right"
-                android:text="Android:0"
-                android:textSize="15dp" />
-        </RelativeLayout>
-
-        <triki.jhonmendez.com.reto4.BoardView
-            android:id="@+id/board"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            android:layout_marginTop="5dp" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
 
         <TextView
-            android:id="@+id/information"
+            android:id="@+id/human"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="5dp"
+            android:gravity="left"
+            android:text="Tú:0"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/tie"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:gravity="center_horizontal"
-            android:text="info"
-            android:textSize="20dp" />
+            android:text="Empates:0"
+            android:textSize="15dp" />
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/computer"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="right"
+            android:text="Maquina:0"
+            android:textSize="15dp" />
+    </RelativeLayout>
+ <triki.jhonmendez.com.reto4.BoardView
+        android:id="@+id/board"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="5dp" />
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/information"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:text="info"
+        android:textSize="20dp" />
+
+</LinearLayout>
